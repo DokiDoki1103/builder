@@ -12,6 +12,13 @@ if [[ $ES_ENABLE_SPRING_CLOUD == "true" ]];then
     cloud:
       sentinel:
         datasource:
+          rbd_gw_flow:
+            nacos:
+              serverAddr: ${NACOS_ADDR}
+              dataId: ${RBD_SERVICE_NAME}-gw-flow-rules
+              ruleType: gw-flow
+              groupId: SENTINEL_GROUP
+              dataType: json
           rbd_flow:
             nacos:
               serverAddr: ${NACOS_ADDR}
