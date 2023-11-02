@@ -356,7 +356,7 @@ install_pinpoit_agent() {
   PINPOINT_AGENT=${PINPOINT_AGENT:-"${DEFAULT_PINPOINT_AGENT}"}
   mkdir "${install_dir}/.pinpoint"
   curl --retry 3 --silent --location "$PINPOINT_AGENT" | tar xzm -C "${install_dir}/.pinpoint"
-  status "Install pinpoint agent success"
+  status "Install pinpoint agent success6"
 }
 
 install_skywalking_agent() {
