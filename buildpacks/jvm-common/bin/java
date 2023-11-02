@@ -361,6 +361,8 @@ install_pinpoit_agent() {
 
 install_skywalking_agent() {
   echo_title "Install skywalking agent"
+  echo "Install skywalking agent"
+
   # skywalking包大概30mb只有开启了spring cloud治理模式才会下载
   local install_dir=${1}
   SKW_AGENT_VERSION=${SKW_AGENT_VERSION:-9.0.0}
