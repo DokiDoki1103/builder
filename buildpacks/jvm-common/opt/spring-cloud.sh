@@ -46,5 +46,12 @@ if [[ $ES_ENABLE_SPRING_CLOUD == "true" ]];then
           server-addr: ${NACOS_ADDR}
           namespace: ${RBD_APP_NAME}
           enabled: true" > local-spring-cloud.yaml
+  if [ -n "$GATEWAY" ]; then
+      # 如果是网关类型，那么应该更换 ruleType
+      sed -i 's/ruleType: flow/ruleType: gw-flow/g' local-spring-cloud.yaml
+      echo "环境变量 GATEWAY 执行替换"
+  else
+      echo "环境变量 GATEWAY 未设置"
+  fi
   export JAVA_OPTS="$JAVA_OPTS -javaagent:/app/.skywalking/skywalking-agent/skywalking-agent.jar -Dskywalking.agent.service_name=${RBD_APP_NAME}::${RBD_SERVICE_NAME} -Dspring.config.additional-location=local-spring-cloud.yaml"
 fi
