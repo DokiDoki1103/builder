@@ -49,6 +49,7 @@ if [[ $ES_ENABLE_SPRING_CLOUD == "true" ]];then
   if [ -n "$GATEWAY" ]; then
       # 如果是网关类型，那么应该更换 ruleType
       sed -i 's/ruleType: flow/ruleType: gw-flow/g' local-spring-cloud.yaml
+      sed -i 's/-flow-rules/-gw-flow-rules/g' local-spring-cloud.yaml
       echo "环境变量 GATEWAY 执行替换"
   else
       echo "环境变量 GATEWAY 未设置"
